@@ -1,0 +1,55 @@
+span {
+ color: #fd4659;
+}
+.info {
+ padding: 0 10px;
+}
+.title {
+ width: 80%;
+ margin: 10px 0;
+}
+
+.delete {
+ color: red !important;
+ font-size: 2rem;
+}
+
+.hero button {
+ border-radius: 10px;
+ border: 1px solid #fd4659;
+ padding: 4px 15px;
+ margin-top: 15px;
+ transition: 0.3s;
+}
+.hero button:hover {
+ transform: translateX(3px);
+}
+.hero .order {
+ background-color: #fd4659;
+ color: white;
+}
+.hero .categ {
+ background-color: white;
+ color: #fd4659;
+}
+
+@media (max-width: 767px) {
+ .hero {
+  flex-direction: column-reverse;
+ }
+ .title {
+  width: 100%;
+ }
+ .info {
+  text-align: center;
+ }
+ .info p {
+  margin: auto;
+ }
+ .info .buttons {
+  justify-content: center;
+ }
+ .info .pros {
+  justify-content: center;
+ }
+}

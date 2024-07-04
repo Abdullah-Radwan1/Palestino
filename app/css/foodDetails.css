@@ -1,0 +1,61 @@
+.three-img img {
+ width: 150px;
+}
+.one-img img {
+ width: 300px;
+}
+.FoodDetails .details button {
+ border-radius: 5px;
+ padding: 5px 18px;
+ background-color: #fd4659;
+ color: white;
+ transition: 0.3s;
+}
+.active {
+ border-bottom: 2px solid var(--mainColor);
+}
+.FoodDetails .description .btns {
+ border-bottom: 2px solid var(--p);
+ padding-bottom: 20px;
+}
+
+.FoodDetails .desc {
+ padding-top: 30px;
+}
+
+.FoodDetails .form-group {
+ background-color: var(--secondaryColor);
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ align-items: center;
+ justify-content: center;
+ padding: 50px;
+ margin: 50px auto;
+ width: 50%;
+ border-radius: 10px;
+ align-items: flex-start;
+}
+
+.FoodDetails input,
+textarea {
+ width: 100%;
+ background-color: transparent;
+}
+textarea {
+ border-bottom: 1px solid black;
+ min-height: 100px;
+}
+.FoodDetails .form-group button {
+ border-radius: 5px;
+ padding: 5px 18px;
+ background-color: #fd4659;
+ color: white;
+ transition: 0.3s;
+}
+
+@media (max-width: 1000px) {
+ .FoodDetails .form-group {
+  width: 90%;
+ }
+}

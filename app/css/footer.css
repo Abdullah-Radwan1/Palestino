@@ -1,0 +1,27 @@
+footer {
+ background-color: var(--secondaryColor);
+ padding: 30px 15px;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ gap: 45px 100px;
+ align-items: flex-start;
+ justify-content: center;
+}
+
+footer div {
+ flex-direction: column;
+ gap: 10px;
+ display: flex;
+}
+footer .logo {
+ height: 30px;
+ width: 40px;
+}
+
+@media (max-width: 767px) {
+ footer .col:not(:last-child) {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(150, 138, 138);
+  border-radius: 5px;
+ }
+}

@@ -1,0 +1,40 @@
+.all-products {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ justify-content: center;
+ align-items: center;
+ gap: 15px;
+ color: #fd4659;
+}
+.product {
+ border: 1px solid #fd46581f;
+ height: 300px;
+}
+.all-products .img {
+ transition: 0.5s;
+ z-index: -1;
+}
+
+.product .img-title:hover {
+ transition: 0.3s;
+ scale: 1.15;
+}
+.price-add {
+ display: flex;
+ justify-content: space-between;
+}
+
+.price-add button {
+ border-radius: 5px;
+ padding: 5px 18px;
+ background-color: #fd4659;
+ color: white;
+ transition: 0.3s;
+}
+.price-add button:hover {
+ transform: translateY(-3px);
+}
+.price-add .price {
+ font-size: 1.2rem;
+ color: #fd4659;
+}

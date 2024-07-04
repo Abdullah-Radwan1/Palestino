@@ -1,0 +1,30 @@
+.common-section {
+ margin: 5rem 0;
+
+}
+.banner {
+ background-size: cover;
+ width: 100%;
+ background-repeat: no-repeat;
+ background-position: center;
+ filter: blur(20%);
+}
+.banner-parent {
+ height: 300px;
+ overflow: hidden;
+}
+.inputs {
+ margin-top: 3rem !important;
+}
+.paginate {
+ display: flex;
+ gap: 10px;
+ justify-content: center;
+ margin-bottom: 2rem;
+}
+.paginate a {
+ background-color: var(--p);
+ color: white;
+ padding: 5px 10px;
+ border-radius: 5px;
+}

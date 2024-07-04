@@ -1,0 +1,26 @@
+form:first-child {
+  width: 50%;
+  margin-top: 3rem;
+}
+form .input {
+  margin: 20px 0;
+}
+.checkout button {
+  margin-top: 2rem;
+  border-radius: 5px;
+  padding: 5px 18px;
+  background-color: #fd4659;
+  color: white;
+}
+
+@media (max-width: 770px) {
+  form {
+    margin: auto;
+  }
+
+  .checkout .btn {
+    display: flex;
+    justify-content: center;
+  }
+}
+

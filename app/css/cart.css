@@ -1,0 +1,24 @@
+.big-table {
+ min-height: 65vh;
+ margin-top: 2rem;
+}
+table {
+  width: 60%;
+  border-collapse: collapse;
+ }
+th,
+td {
+ box-shadow: 0 0 2px black;
+ padding: 5px 50px;
+ padding: 8px;
+ text-align: center;
+ border: 1px solid #ddd;
+}
+
+
+
+@media (max-width: 420px) {
+ img {
+  width: 70%;
+ }
+}

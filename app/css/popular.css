@@ -1,0 +1,40 @@
+.popular h1 {
+ color: var(--mainColor);
+}
+.popular .popular-sec {
+ padding: 20px 0;
+ display: flex;
+ justify-content: space-evenly;
+ align-items: center;
+ margin-top: 2rem;
+ flex-wrap: wrap;
+ gap: 20px;
+ background-color: var(--mainColor);
+ border-radius: 10px;
+}
+
+.popular button > img {
+ width: 40%;
+}
+.popular .popular-sec button{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 10px;
+ width: 120px;
+ height: 60px;
+ border-radius: 10px;
+ color: white;
+
+}
+
+.popular button:hover {
+ transition: 0.3s;
+ scale: 1.1;
+}
+
+.P_active {
+ background-color: white;
+ border-radius: 5px;
+ color: black !important;
+}

@@ -1,0 +1,41 @@
+.advantages {
+ margin: auto;
+ text-align: center;
+ padding-top: 20px;
+ width: 80%;
+}
+
+.adv-img{z-index: -1 !important;}
+.advantages h1 {
+ width: 60%;
+ margin: auto;
+}
+.advantages section .span {
+ color: var(--mainColor);
+}
+.advantages .alladv {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+ justify-content: center;
+ align-content: center;
+}
+.advantages .alladv .adv {
+ display: flex;
+ flex-direction: column;
+ gap: 5px;
+ justify-content: center;
+ align-items: center;
+}
+.advantages .alladv p {width: 60%;}
+@media (max-width: 767px) {
+ .advantages {
+  width: 100%;
+  margin: auto;
+ }
+ .advantages .alladv {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    justify-content: center;
+    align-content: center;
+   }
+}
