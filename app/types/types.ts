@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-export interface CartItem {
+export interface CartItemsTypes {
     id: string;
     title: string;
     image01: StaticImageData;
@@ -14,7 +14,7 @@ export interface CartItem {
     price: number;
    }
    export interface InitialState {
-    cartItems: CartItem[];
+    cartItems: CartItemsTypes[];
     totalQuantity: number;
     totalPrice: number;
    }

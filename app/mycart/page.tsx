@@ -6,11 +6,11 @@ import { deleteProduct } from "../Redux/Cart/cartSlice";
 import Image from "next/image";
 import { Delete } from "@mui/icons-material";
 import { Rootstate } from "../Redux/store";
-import { CartItem } from "../Redux/Cart/cartSlice";
+import { CartItemsTypes } from "../types/types";
 
 
 interface AddedProductRowProps {
-    item: CartItem;
+    item: CartItemsTypes;
   }
 const Cart = () => {
     //selectors  of the states

@@ -1,17 +1,17 @@
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CartItem, CartItemDispatch, InitialState } from "@/app/types/types";
+import { CartItemsTypes, CartItemDispatch, InitialState } from "@/app/types/types";
 
 const getItemFromLocalStorage = (key: string, defaultValue: any) => {
   const storedItem = localStorage.getItem(key);
   return storedItem !== null ? JSON.parse(storedItem) : defaultValue;
 };
 
-const Items: CartItem[] = getItemFromLocalStorage("cartItems", []);
+const Items: CartItemsTypes[] = getItemFromLocalStorage("cartItems", []);
 const totalQuantityLC: number = getItemFromLocalStorage("totalQuantityLC", 0);
 const totalPriceLC: number = getItemFromLocalStorage("totalPriceLC", 0);
 
-const setItemFunc = (items: CartItem[], totalQuantityLC: number, totalPriceLC: number) => {
+const setItemFunc = (items: CartItemsTypes[], totalQuantityLC: number, totalPriceLC: number) => {
   localStorage.setItem("cartItems", JSON.stringify(items));
   localStorage.setItem("totalQuantityLC", JSON.stringify(totalQuantityLC));
   localStorage.setItem("totalPriceLC", JSON.stringify(totalPriceLC));

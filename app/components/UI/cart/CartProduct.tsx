@@ -4,10 +4,10 @@ import React from "react";
 import { Add, Close, Remove } from "@mui/icons-material";
 import "@/app/css/shoppingcart.css";
 import { useDispatch } from "react-redux";
-import { addProduct, removeProduct, deleteProduct, CartItem } from "@/app/Redux/Cart/cartSlice";
-
+import { addProduct, removeProduct, deleteProduct} from "@/app/Redux/Cart/cartSlice";
+import { CartItemsTypes } from "@/app/types/types";
 interface CartItems {
-    item: CartItem;
+    item: CartItemsTypes;
   }
 
 
