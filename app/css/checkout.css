@@ -1,3 +1,4 @@
+.checkout-big{ min-height: 63vh;}
 form:first-child {
   width: 50%;
   margin-top: 3rem;
@@ -24,3 +25,11 @@ form .input {
   }
 }
 
+.checkout-big button{ border-radius: 5px;
+  padding: 5px 18px;
+  background-color: #fd4659;
+  color: white;
+margin: auto;
+display: flex;
+margin-top: 2rem;
+}

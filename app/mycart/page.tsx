@@ -7,17 +7,17 @@ import Image from "next/image";
 import { Delete } from "@mui/icons-material";
 import { Rootstate } from "../Redux/store";
 import { CartItemsTypes } from "../types/types";
-
+import Link from "next/link";
 
 interface AddedProductRowProps {
-    item: CartItemsTypes;
-  }
+ item: CartItemsTypes;
+}
 const Cart = () => {
-    //selectors  of the states
- const products = useSelector((state:Rootstate) => state.cart.cartItems);
- const total = useSelector((state:Rootstate) => state.cart.totalPrice);
+ //selectors  of the states
+ const products = useSelector((state: Rootstate) => state.cart.cartItems);
+ const total = useSelector((state: Rootstate) => state.cart.totalPrice);
  // the added products in the table
- const AddedProductRow = (props:AddedProductRowProps) => {
+ const AddedProductRow = (props: AddedProductRowProps) => {
   const { id, image01, title, price, quantity } = props.item;
   const dispatch = useDispatch();
   const deleteItem = () => {
@@ -52,9 +52,7 @@ const Cart = () => {
  };
 
  return (
-    
   <div className="big-table">
-    
    {products.length === 0 ? (
     <div className="h-[60vh] text-center relative top-[10rem]">
      <h1>No items have been added yet </h1>
@@ -80,11 +78,13 @@ const Cart = () => {
 
      <div className="!mt-20 container extra-details flex flex-col">
       <h2>
-       subtotal : <span>{total}$</span> 
+       subtotal : <span>{total}$</span>
       </h2>
       <p>including VAT</p>
       <div className="btns flex gap-5 mt-6">
-       <button>go to checkout</button>
+       <Link href={"/checkout"}>
+        <button>go to checkout</button>
+       </Link>
       </div>
      </div>
     </>
