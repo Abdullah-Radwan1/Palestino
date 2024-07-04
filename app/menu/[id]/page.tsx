@@ -5,7 +5,7 @@ import { Input } from "@mui/material";
 import { useParams } from "next/navigation";
 import { addProduct } from "@/app/Redux/Cart/cartSlice";
 import { useDispatch } from "react-redux";
-import { CartItem } from "@/app/Redux/Cart/cartSlice";
+ import { CartItemsTypes } from "@/app/types/types";
 import React, { useState } from "react";
 import Image from "next/image";
 import products from "@/app/assets/productsData"; // Ensure productsData exports Product type
@@ -26,7 +26,7 @@ const FoodDetails = () => {
  //added product logic when clicking on it
  const addPro = () => {
     if (product) {
-        const item: CartItem = {
+        const item: CartItemsTypes = {
           id: product.id,
           title: product.title,
           price: product.price,
