@@ -8,7 +8,7 @@ import banner from "../../public/banner.jpg"
 import { Input } from "@mui/material"
 import { useState } from "react"
 import ReactPaginate from "react-paginate"
-import { Face2Outlined } from "@mui/icons-material"
+
 
 const CommonSection = () => {
  // Sorting and filtering variables
