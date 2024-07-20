@@ -1,11 +1,10 @@
-
 import "../app/globals.css"
-import Homepage from "./Homepage/page";
+import Homepage from "./Homepage/page"
 
 export default function Home() {
- return <>
-
-<Homepage/>
- 
- </>;
+ return (
+  <>
+   <Homepage />
+  </>
+ )
 }

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { CartItemsTypes, CartItemDispatch, InitialState } from "@/app/types/types"
 
+// if there are items in the LS it gets it or gives the default value
 const getItemFromLocalStorage = (key: string, defaultValue: any) => {
  if (typeof localStorage !== "undefined") {
   const storedItem = localStorage.getItem(key)
@@ -8,21 +9,20 @@ const getItemFromLocalStorage = (key: string, defaultValue: any) => {
  }
  return defaultValue
 }
-
 const Items: CartItemsTypes[] = getItemFromLocalStorage("cartItems", [])
 const totalQuantityLC: number = getItemFromLocalStorage("totalQuantityLC", 0)
 const totalPriceLC: number = getItemFromLocalStorage("totalPriceLC", 0)
-
-const setItemFunc = (items: CartItemsTypes[], totalQuantityLC: number, totalPriceLC: number) => {
- localStorage.setItem("cartItems", JSON.stringify(items))
- localStorage.setItem("totalQuantityLC", JSON.stringify(totalQuantityLC))
- localStorage.setItem("totalPriceLC", JSON.stringify(totalPriceLC))
-}
 
 const initialState: InitialState = {
  cartItems: Items,
  totalQuantity: totalQuantityLC,
  totalPrice: totalPriceLC,
+}
+///////////////  sets the items to the local storage
+const setItemFunc = (items: CartItemsTypes[], totalQuantityLC: number, totalPriceLC: number) => {
+ localStorage.setItem("cartItems", JSON.stringify(items))
+ localStorage.setItem("totalQuantityLC", JSON.stringify(totalQuantityLC))
+ localStorage.setItem("totalPriceLC", JSON.stringify(totalPriceLC))
 }
 
 const CartSlice = createSlice({
@@ -30,9 +30,10 @@ const CartSlice = createSlice({
  initialState,
  reducers: {
   addProduct: (state, action: PayloadAction<CartItemDispatch>) => {
+   state.totalQuantity++
+   //checking if the product is already exists
    const newProduct = action.payload
    const existingProduct = state.cartItems.find((p) => p.id === newProduct.id)
-   state.totalQuantity++
    if (!existingProduct) {
     state.cartItems.push({
      id: newProduct.id,
@@ -55,9 +56,10 @@ const CartSlice = createSlice({
    )
   },
   removeProduct: (state, action: PayloadAction<string>) => {
+   state.totalQuantity--
    const id = action.payload
    const existingProduct = state.cartItems.find((item) => item.id === id)
-   state.totalQuantity--
+   //this code fixes if the proplem is undefined
    if (!existingProduct) {
     return
    }

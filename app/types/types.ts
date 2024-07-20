@@ -18,3 +18,11 @@ export interface CartItemsTypes {
     totalQuantity: number;
     totalPrice: number;
    }
+
+  export interface ProductCardProps {
+    id: string;
+    title: string;
+    image01: StaticImageData;
+    price: number;
+  
+  }

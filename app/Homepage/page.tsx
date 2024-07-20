@@ -8,7 +8,7 @@ import Categories from "../components/UI/categories"
 import Advantages from "../components/UI/Advantages"
 import Products from "../components/UI/All-Products"
 import WhyPalestine from "../components/UI/WhyPalestine"
-import { Testimonial } from "../components/UI/Testimonial"
+import  Testimonial  from "../components/UI/Testimonial"
 
 const Homepage = () => {
  return (
@@ -46,14 +46,12 @@ const Homepage = () => {
       </div>
      </div>
      {/* hero image */}
-     <div className="img hero  md:w-[500px] md:h-[500px] h-[200px] w-[200px] ">
+     <div className="img hero  md:w-[400px] md:h-[400px] h-[250px] w-[250px] ">
       <Image src={hero} alt="iamge" fill />
      </div>
     </div>
-    {/* ////////////////////////////////////////////////////////////////// */}
     {/* categories  */}
     <Categories />
-    {/* ////////////////////////////////////////////////////////////////// */}
     {/* Advantages  */}
     <Advantages />
     {/* Products  */}
@@ -62,6 +60,7 @@ const Homepage = () => {
     <WhyPalestine />
     {/* testimonial  */}
     <Testimonial />
+    <button></button>
    </div>
   </>
  )

@@ -1,16 +1,15 @@
 .common-section {
- margin: 5rem 0;
-
+ margin: 2rem 0;
 }
 .banner {
  background-size: cover;
  width: 100%;
- background-repeat: no-repeat;
- background-position: center;
- filter: blur(20%);
+
+ filter: blur(3px);
 }
 .banner-parent {
- height: 300px;
+ filter: blur(100%);
+ height: 400px;
  overflow: hidden;
 }
 .inputs {
@@ -23,7 +22,7 @@
  margin-bottom: 2rem;
 }
 .paginate a {
- background-color: var(--p);
+ background-color: var(--mainColor);
  color: white;
  padding: 5px 10px;
  border-radius: 5px;
