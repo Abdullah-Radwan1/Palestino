@@ -4,9 +4,9 @@ import Image from "next/image" // Adjust the import if you are using a different
 import { useDispatch } from "react-redux"
 import { addProduct } from "@/app/Redux/Cart/cartSlice"
 import Link from "next/link"
-import { ProductCardProps } from "@/app/types/types"
+import { CartItemDispatchs } from "@/app/types/types"
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, title, image01, price }) => {
+const ProductCard: React.FC<CartItemDispatchs> = ({ id, title, image01, price }) => {
  const dispatch = useDispatch()
  const addToCart = () => dispatch(addProduct({ id, title, price, image01 }))
 

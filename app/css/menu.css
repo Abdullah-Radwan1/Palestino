@@ -4,8 +4,8 @@
 .banner {
  background-size: cover;
  width: 100%;
-
- filter: blur(3px);
+ border-radius: 20px;
+ filter: blur(1.7px);
 }
 .banner-parent {
  filter: blur(100%);

@@ -46,7 +46,7 @@ const Homepage = () => {
       </div>
      </div>
      {/* hero image */}
-     <div className="img hero  md:w-[400px] md:h-[400px] h-[250px] w-[250px] ">
+     <div className="img hero md:w-[500px] md:h-[500px] h-[300px] w-[300px] ">
       <Image src={hero} alt="iamge" fill />
      </div>
     </div>

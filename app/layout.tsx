@@ -6,7 +6,6 @@ import Footer from "./components/Footer/page"
 import Providers from "./Redux/Provider"
 import Carts from "./components/UI/cart/SideCart"
 import NextTopLoader from "nextjs-toploader"
-import ProductCard from "./components/UI/ProductCard"
 
 const RocknRoll = RocknRoll_One({
  subsets: ["latin"],

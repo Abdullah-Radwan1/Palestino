@@ -1,5 +1,5 @@
 "use client"
-import "../css/commonSection.css"
+import "../css/menu.css"
 import "../css/products.css"
 import products from "@/app/assets/productsData"
 import Image from "next/image"
@@ -9,8 +9,7 @@ import { Input } from "@mui/material"
 import { useState } from "react"
 import ReactPaginate from "react-paginate"
 
-
-const CommonSection = () => {
+const Menu = () => {
  // Sorting and filtering variables
  const [searchTerm, setSearchTerm] = useState("")
  const [sortOption, setSortOption] = useState("default")
@@ -41,7 +40,9 @@ const CommonSection = () => {
  const productPerPage = 5
  const visitedPage = pages * productPerPage // indicates the index of the first product to show in the next page
 
- // Apply filtering and sorting before pagination
+ {
+  /* Apply filtering and sorting before pagination */
+ }
  const filteredProducts = products
   .filter((product) => {
    if (searchTerm === "") {
@@ -61,10 +62,12 @@ const CommonSection = () => {
  return (
   <>
    <div className="common-section ">
-    <h1 className="text-center mb-5">Browse our menu</h1> 
+    <h1 className="text-center mb-5">Browse our menu</h1>
     <div className="img banner-parent">
-     <Image  className="banner" src={banner} alt="" />
+     <Image className="banner" src={banner} alt="" />
     </div>
+
+    {/* ALL Inputs */}
     <div className="inputs container flex justify-between ">
      {/* Input for filtering */}
      <Input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="text" placeholder="searching for..." />
@@ -79,6 +82,7 @@ const CommonSection = () => {
       </select>
      </div>
     </div>
+
     {/* Products */}
 
     <div className="container all-products">
@@ -89,9 +93,9 @@ const CommonSection = () => {
      )}
     </div>
    </div>
-   <ReactPaginate containerClassName="paginate" pageCount={pageCount} onPageChange={changepage} previousLabel={"Prev"} nextLabel={"Next"}  />
+   <ReactPaginate containerClassName="paginate" pageCount={pageCount} onPageChange={changepage} previousLabel={"Prev"} nextLabel={"Next"} />
   </>
  )
 }
 
-export default CommonSection
+export default Menu

@@ -7,8 +7,8 @@ export interface CartItemsTypes {
  quantity: number
  totalprice: number
 }
+export type CartItemDispatchs = Omit<CartItemsTypes, 'quantity' | 'totalprice'>;
 
-export type CartItemDispatch = Omit<CartItemsTypes, "totalprice" & "quantity">
 
 export interface InitialState {
  cartItems: CartItemsTypes[]

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { CartItemsTypes, CartItemDispatch, InitialState } from "@/app/types/types"
+import { CartItemsTypes, CartItemDispatchs, InitialState } from "@/app/types/types"
 
 // if there are items in the LS it gets it or gives the default value
 const getItemFromLocalStorage = (key: string, defaultValue: any) => {
@@ -29,7 +29,7 @@ const CartSlice = createSlice({
  name: "cart",
  initialState,
  reducers: {
-  addProduct: (state, action: PayloadAction<CartItemDispatch>) => {
+  addProduct: (state, action: PayloadAction<CartItemDispatchs>) => {
    state.totalQuantity++
    //checking if the product is already exists
    const newProduct = action.payload
