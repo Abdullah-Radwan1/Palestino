@@ -1,25 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { CartItemsTypes, CartItemDispatchs, InitialState } from "@/app/types/types"
+import {
+ CartItemsTypes,
+ CartItemDispatchs,
+ InitialState,
+} from "@/app/types/types"
+import { getItemFromLocalStorage } from "@/app/utility/functions"
 
 // if there are items in the LS it gets it or gives the default value
-const getItemFromLocalStorage = (key: string, defaultValue: any) => {
- if (typeof localStorage !== "undefined") {
-  const storedItem = localStorage.getItem(key)
-  return storedItem !== null ? JSON.parse(storedItem) : defaultValue
- }
- return defaultValue
-}
-const Items: CartItemsTypes[] = getItemFromLocalStorage("cartItems", [])
+const ItemsLC: CartItemsTypes[] = getItemFromLocalStorage("cartItems", [])
 const totalQuantityLC: number = getItemFromLocalStorage("totalQuantityLC", 0)
 const totalPriceLC: number = getItemFromLocalStorage("totalPriceLC", 0)
 
 const initialState: InitialState = {
- cartItems: Items,
+ cartItems: ItemsLC,
  totalQuantity: totalQuantityLC,
  totalPrice: totalPriceLC,
 }
 ///////////////  sets the items to the local storage
-const setItemFunc = (items: CartItemsTypes[], totalQuantityLC: number, totalPriceLC: number) => {
+const setItemFunc = (
+ items: CartItemsTypes[],
+ totalQuantityLC: number,
+ totalPriceLC: number,
+) => {
  localStorage.setItem("cartItems", JSON.stringify(items))
  localStorage.setItem("totalQuantityLC", JSON.stringify(totalQuantityLC))
  localStorage.setItem("totalPriceLC", JSON.stringify(totalPriceLC))
@@ -45,9 +47,14 @@ const CartSlice = createSlice({
     })
    } else {
     existingProduct.quantity++
-    existingProduct.totalprice = Number(existingProduct.totalprice) + Number(newProduct.price)
+    existingProduct.totalprice =
+     Number(existingProduct.totalprice) + Number(newProduct.price)
    }
-   state.totalPrice = state.cartItems.reduce((total, product) => total + Number(product.price) * Number(product.quantity), 0)
+   state.totalPrice = state.cartItems.reduce(
+    (total, product) =>
+     total + Number(product.price) * Number(product.quantity),
+    0,
+   )
 
    setItemFunc(
     state.cartItems.map((p) => p),
@@ -59,17 +66,24 @@ const CartSlice = createSlice({
    state.totalQuantity--
    const id = action.payload
    const existingProduct = state.cartItems.find((item) => item.id === id)
-   //this code fixes if the proplem is undefined
+   //this code fixes if it is undefined
    if (!existingProduct) {
     return
    }
+
+   //returns all the product except it
    if (existingProduct.quantity === 1) {
     state.cartItems = state.cartItems.filter((item) => item.id !== id)
    } else {
     existingProduct.quantity--
-    existingProduct.totalprice = Number(existingProduct.totalprice) - Number(existingProduct.price)
+    existingProduct.totalprice =
+     Number(existingProduct.totalprice) - Number(existingProduct.price)
    }
-   state.totalPrice = state.cartItems.reduce((total, product) => total + Number(product.price) * Number(product.quantity), 0)
+   state.totalPrice = state.cartItems.reduce(
+    (total, product) =>
+     total + Number(product.price) * Number(product.quantity),
+    0,
+   )
    setItemFunc(
     state.cartItems.map((p) => p),
     state.totalQuantity,
@@ -83,7 +97,11 @@ const CartSlice = createSlice({
     state.cartItems = state.cartItems.filter((product) => product.id !== id)
     state.totalQuantity = state.totalQuantity - existingProduct.quantity
    }
-   state.totalPrice = state.cartItems.reduce((total, product) => total + Number(product.price) * Number(product.quantity), 0)
+   state.totalPrice = state.cartItems.reduce(
+    (total, product) =>
+     total + Number(product.price) * Number(product.quantity),
+    0,
+   )
    setItemFunc(
     state.cartItems.map((p) => p),
     state.totalQuantity,
