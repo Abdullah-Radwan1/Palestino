@@ -27,9 +27,9 @@ const Menu = () => {
    case "low-price":
     return a.price - b.price
    case "descending":
-    return b.title.localeCompare(a.title)
-   case "ascending":
     return a.title.localeCompare(b.title)
+   case "ascending":
+    return b.title.localeCompare(a.title)
    default:
     return 0
   }
@@ -49,11 +49,16 @@ const Menu = () => {
     return true // Include all products if search term is empty
    }
    // makes sure that the word and the titel of the products are all lowerCase
-   return product.title.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
+   return product.title
+    .toLocaleLowerCase()
+    .includes(searchTerm.toLocaleLowerCase())
   })
   .sort(handleSort)
 
- const displayPage = filteredProducts.slice(visitedPage, visitedPage + productPerPage)
+ const displayPage = filteredProducts.slice(
+  visitedPage,
+  visitedPage + productPerPage,
+ )
  const pageCount = Math.ceil(filteredProducts.length / productPerPage)
  const changepage = ({ selected }: { selected: number }) => {
   setPages(selected)
@@ -70,7 +75,12 @@ const Menu = () => {
     {/* ALL Inputs */}
     <div className="inputs container flex justify-between ">
      {/* Input for filtering */}
-     <Input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="text" placeholder="searching for..." />
+     <Input
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      type="text"
+      placeholder="searching for..."
+     />
      {/* Sorting options */}
      <div className="sorting">
       <select onChange={(e) => setSortOption(e.target.value)}>
@@ -89,11 +99,25 @@ const Menu = () => {
      {filteredProducts.length === 0 ? (
       <span data-testid={"noteFoundText"}>this product is not found</span>
      ) : (
-      displayPage.map((product) => <ProductCard key={product.id} id={product.id} title={product.title} image01={product.image01} price={product.price} />)
+      displayPage.map((product) => (
+       <ProductCard
+        key={product.id}
+        id={product.id}
+        title={product.title}
+        image01={product.image01}
+        price={product.price}
+       />
+      ))
      )}
     </div>
    </div>
-   <ReactPaginate containerClassName="paginate" pageCount={pageCount} onPageChange={changepage} previousLabel={"Prev"} nextLabel={"Next"} />
+   <ReactPaginate
+    containerClassName="paginate"
+    pageCount={pageCount}
+    onPageChange={changepage}
+    previousLabel={"Prev"}
+    nextLabel={"Next"}
+   />
   </>
  )
 }
